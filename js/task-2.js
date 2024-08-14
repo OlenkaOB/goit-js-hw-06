@@ -6,11 +6,15 @@ class Storage {
   getItems() {
     return this.#items;
   }
-  addItem() {
-    this.#items = item;
-    return this.push(item);
+  addItem(newItem) {
+    this.#items.push(newItem);
   }
-  removeItem() {}
+  removeItem(itemToRemove) {
+    const itemIndex = this.#items.indexOf(itemToRemove);
+    if (itemIndex !== -1) {
+      this.#items.splice(itemIndex, 1);
+    }
+  }
 }
 
 const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
